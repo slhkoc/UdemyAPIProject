@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UdemyProject.Core\UdemyProject.Core.csproj" />
+    <ProjectReference Include="..\UdemyProject.Data\UdemyProject.Data.csproj" />
+    <ProjectReference Include="..\UdemyProject.Service\UdemyProject.Service.csproj" />
+  </ItemGroup>
+
 
 </Project>
