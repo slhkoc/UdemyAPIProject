@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UdemyProject.Core.Models;
+using UdemyProject.Data.Configurations;
 
 namespace UdemyProject.Data
 {
@@ -18,7 +19,8 @@ namespace UdemyProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //Veritabanında tablolar oluşturulmadan önce çalışacak method
         {
-           
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         }
     }
 }
