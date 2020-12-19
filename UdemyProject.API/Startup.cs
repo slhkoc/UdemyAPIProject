@@ -11,7 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyProject.Core.UnitOfWorks;
 using UdemyProject.Data;
+using UdemyProject.Data.UnitOfWorks;
 
 namespace UdemyProject.API
 {
@@ -29,9 +31,12 @@ namespace UdemyProject.API
         {
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString());
+                options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString(),o=>
+                {
+                    o.MigrationsAssembly("UdemyProject.Data");
+                });
             });
-
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllers();
         }
 
