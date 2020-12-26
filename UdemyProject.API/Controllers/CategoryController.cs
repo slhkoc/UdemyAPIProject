@@ -16,7 +16,7 @@ namespace UdemyProject.API.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
-        public CategoryController(ICategoryService categoryService,IMapper mapper)
+        public CategoryController(ICategoryService categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
             _mapper = mapper;
@@ -28,6 +28,14 @@ namespace UdemyProject.API.Controllers
             var categories = await _categoryService.GetAllAsync();
 
             return Ok(_mapper.Map<IEnumerable<CategoryDto>>(categories));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var category = await _categoryService.GetByIdAsync(id);
+
+            return Ok(_mapper.Map<CategoryDto>(category));
         }
     }
 }
