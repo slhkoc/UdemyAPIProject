@@ -11,9 +11,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyProject.Core.Repositories;
+using UdemyProject.Core.Services;
 using UdemyProject.Core.UnitOfWorks;
 using UdemyProject.Data;
+using UdemyProject.Data.Repositories;
 using UdemyProject.Data.UnitOfWorks;
+using UdemyProject.Service.Services;
 
 namespace UdemyProject.API
 {
@@ -36,6 +40,12 @@ namespace UdemyProject.API
                     o.MigrationsAssembly("UdemyProject.Data");
                 });
             });
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllers();
         }
