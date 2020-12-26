@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +41,8 @@ namespace UdemyProject.API
                     o.MigrationsAssembly("UdemyProject.Data");
                 });
             });
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
