@@ -22,6 +22,7 @@ namespace UdemyProject.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryService.GetAllAsync();
+
             return Ok(categories);
         }
     }
