@@ -17,6 +17,7 @@ namespace UdemyProject.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Person> Persons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //Veritabanında tablolar oluşturulmadan önce çalışacak method
         {
@@ -25,6 +26,13 @@ namespace UdemyProject.Data
 
             modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1, 2 }));
             modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1, 2 }));
+
+            //Bu Kısmı burada da configuration'lar oluşturulabilir açısından örnek olarak yapıldı, bu kısımlar Configuration Dosyası olarak oluşturulmalıdır.
+            modelBuilder.Entity<Person>().HasKey(x => x.Id);
+            modelBuilder.Entity<Person>().Property(x => x.Id).UseIdentityColumn();
+            modelBuilder.Entity<Person>().Property(x => x.Name).HasMaxLength(100);
+            modelBuilder.Entity<Person>().Property(x => x.Surname).HasMaxLength(100);
+
         }
     }
 }
