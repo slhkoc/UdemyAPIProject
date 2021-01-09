@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UdemyProject.API.Filters;
 using UdemyProject.Core.Repositories;
 using UdemyProject.Core.Services;
 using UdemyProject.Core.UnitOfWorks;
@@ -43,7 +44,7 @@ namespace UdemyProject.API
             });
 
             services.AddAutoMapper(typeof(Startup));
-
+            services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
