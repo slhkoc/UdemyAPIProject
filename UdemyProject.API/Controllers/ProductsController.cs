@@ -63,6 +63,10 @@ namespace UdemyProject.API.Controllers
         [HttpPut]
         public IActionResult Update(ProductDto productDto)
         {
+            if(productDto.Id<=0)
+            {
+                throw new Exception("Id Alanı Gereklidir!");
+            }
             var product = _productService.Update(_mapper.Map<Product>(productDto));
 
             return NoContent();
