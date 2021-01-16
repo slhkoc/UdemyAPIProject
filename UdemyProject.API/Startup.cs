@@ -24,7 +24,7 @@ using UdemyProject.Data;
 using UdemyProject.Data.Repositories;
 using UdemyProject.Data.UnitOfWorks;
 using UdemyProject.Service.Services;
-
+using UdemyProject.API.Extensions;
 namespace UdemyProject.API
 {
     public class Startup
@@ -70,26 +70,7 @@ namespace UdemyProject.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseExceptionHandler(config =>
-            {
-                config.Run(async context =>
-                {
-                    context.Response.StatusCode = 500;
-                    context.Response.ContentType = "application/json";
-                    var error = context.Features.Get<IExceptionHandlerFeature>();
-
-                    if (error != null)
-                    {
-                        var ex = error.Error;
-                        ErrorDto errorDto = new ErrorDto();
-                        errorDto.Status = 500;
-                        errorDto.Errors.Add(ex.Message);
-
-                        await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDto));
-                    }
-
-                });
-            });
+            app.UseExceptionHandler();
 
             app.UseHttpsRedirection();
 
