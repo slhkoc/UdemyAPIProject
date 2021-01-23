@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UdemyProject.Core.Models;
 using UdemyProject.Core.Services;
 using UdemyProject.Web.DTOs;
+using UdemyProject.Web.Filters;
 
 namespace UdemyProject.Web.Controllers
 {
@@ -52,6 +53,7 @@ namespace UdemyProject.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [ServiceFilter(typeof(NotFoundFilter))] //Not:NotFoundFilter içerisinde DependenctInjection Yapıldığından ServiceFilter içerisinde yazıyoruz!
         public IActionResult Delete(int id)
         {
             var category = _categoryService.GetByIdAsync(id).Result;

@@ -17,6 +17,7 @@ using UdemyProject.Data;
 using UdemyProject.Data.Repositories;
 using UdemyProject.Data.UnitOfWorks;
 using UdemyProject.Service.Services;
+using UdemyProject.Web.Filters;
 
 namespace UdemyProject.Web
 {
@@ -32,6 +33,7 @@ namespace UdemyProject.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<NotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
