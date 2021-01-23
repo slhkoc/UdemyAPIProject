@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyProject.API", "UdemyProject.API\UdemyProject.API.csproj", "{233B3E4E-D4D9-4F57-B546-C3901F57E73A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyProject.API", "UdemyProject.API\UdemyProject.API.csproj", "{233B3E4E-D4D9-4F57-B546-C3901F57E73A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyProject.Core", "UdemyProject.Core\UdemyProject.Core.csproj", "{59F7FCA0-B426-462F-B86D-93F3CDA532EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyProject.Core", "UdemyProject.Core\UdemyProject.Core.csproj", "{59F7FCA0-B426-462F-B86D-93F3CDA532EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyProject.Data", "UdemyProject.Data\UdemyProject.Data.csproj", "{FCE36909-0C85-469A-B939-619BE144CE5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyProject.Data", "UdemyProject.Data\UdemyProject.Data.csproj", "{FCE36909-0C85-469A-B939-619BE144CE5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyProject.Service", "UdemyProject.Service\UdemyProject.Service.csproj", "{FA216BE9-25F6-4204-8A06-DFFC7265375D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyProject.Service", "UdemyProject.Service\UdemyProject.Service.csproj", "{FA216BE9-25F6-4204-8A06-DFFC7265375D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyProject.Web", "UdemyProject.Web\UdemyProject.Web.csproj", "{AE1B5146-66B8-4143-B782-2D41FD4DF9F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FA216BE9-25F6-4204-8A06-DFFC7265375D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA216BE9-25F6-4204-8A06-DFFC7265375D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA216BE9-25F6-4204-8A06-DFFC7265375D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1B5146-66B8-4143-B782-2D41FD4DF9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1B5146-66B8-4143-B782-2D41FD4DF9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1B5146-66B8-4143-B782-2D41FD4DF9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1B5146-66B8-4143-B782-2D41FD4DF9F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
