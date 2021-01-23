@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UdemyProject.Core.Services;
+using UdemyProject.Web.DTOs;
 
 namespace UdemyProject.Web.Controllers
 {
@@ -17,9 +18,11 @@ namespace UdemyProject.Web.Controllers
             _categoryService = categoryService;
             _mapper = mapper;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var categories = await _categoryService.GetAllAsync();
+
+            return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }
     }
 }
